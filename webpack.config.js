@@ -6,22 +6,28 @@ var HTMLWebpackPlugin = require('html-webpack-plugin'),
     });
 module.exports = {
     entry: './app/index.tsx',
+    watch: false,
     module: {
         rules: [{
-            test: /\.tsx$/,
-            exclude: /node_modules/,
-            loader: 'awesome-typescript-loader'
-        }, {
-            enforce: 'pre',
-            test: /\.js$/,
-            loader: 'source-map-loader'
-        }]
+                test: /\.tsx$/,
+                exclude: /node_modules/,
+                loader: 'awesome-typescript-loader'
+            }, {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                loaders: [
+                    'style-loader',
+                    'css-loader?url=false',
+                    'less-loader'
+                ]
+            }
+        ]
     },
     output: {
         filename: 'bundle.js',
         path: __dirname + '/dist'
     },
-    devtool: "source-map",
+    devtool: "inline-source-map",
     resolve: {
         extensions: [
             '.ts', '.tsx', '.js', '.json'
