@@ -331,7 +331,7 @@ export class Activity extends React.Component {
     render() {
         let tickCrossDOM: Function;
         if (this.state.hasTickCross) {
-            tickCrossDOM = (idx1: number) => <img src={this.state.tickCrossStates[idx1] === 'correct' ? '../../assets/tick.png' : this.state.tickCrossStates[idx1] === 'incorrect' ? '../../assets/cross.png' : ''} />;
+            tickCrossDOM = (idx1: number) => <img src={this.state.tickCrossStates[idx1] === 'correct' ? '../../assets/tick.png' : this.state.tickCrossStates[idx1] === 'incorrect' ? '../../assets/red-cross-button.png' : ''} />;
         } else {
             tickCrossDOM = () => { };
         }
